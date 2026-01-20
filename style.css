@@ -44,7 +44,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
+  padding: 60px 30px;
 }
 
 .image-container {
@@ -345,19 +345,20 @@ body {
     height: 400px;
   }
 
-  .title {
-    font-size: 24px;
-  }
-
-  .content-grid {
-    grid-template-columns: 1fr;
-  }
-
   .quote-box {
     padding: 30px 35px;
   }
 
-  .quote-mark {1024px) {
+  .quote-mark {
+    font-size: 60px;
+  }
+
+  .quote {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
   .glow-ring {
     width: 600px;
     height: 600px;
@@ -538,4 +539,6 @@ body {
   }
 
   .text {
-    font-size: 13
+    font-size: 13px;
+  }
+}
