@@ -1,0 +1,541 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: radial-gradient(circle at top, #111827, #020617);
+  color: #f9fafb;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 40px 16px 28px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+.hero p {
+  margin-top: 6px;
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+/* MAIN LAYOUT */
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto 48px;
+  padding: 0 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* IMAGE SECTION - BIGGER & CENTERED */
+.image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* GLOWING RING ANIMATION */
+.glow-ring {
+  position: absolute;
+  width: 750px;
+  height: 750px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #facc15,
+    #f59e0b,
+    #ef4444,
+    #ec4899,
+    #8b5cf6,
+    #3b82f6,
+    #06b6d4,
+    #10b981,
+    #facc15
+  );
+  animation: rotate 4s linear infinite;
+  filter: blur(20px);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+/* IMAGE CARD - LARGER */
+.image-card {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 32px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border: 2px solid rgba(250, 204, 21, 0.3);
+  box-shadow: 
+    0 0 80px rgba(250, 204, 21, 0.3),
+    0 30px 80px rgba(0, 0, 0, 0.9);
+  transform: translateY(20px) scale(0.9);
+  opacity: 0;
+  animation: scaleIn 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  z-index: 1;
+}
+
+.image-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(20%) brightness(1.05);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.08);
+  filter: grayscale(0%) brightness(1.1);
+}
+
+/* FLOATING PARTICLES */
+.floating-particles {
+  position: absolute;
+  width: 750px;
+  height: 750px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #facc15, transparent);
+  border-radius: 50%;
+  opacity: 0;
+  animation: float 3s ease-in-out infinite;
+}
+
+.particle:nth-child(1) {
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+  animation-duration: 4s;
+}
+
+.particle:nth-child(2) {
+  top: 20%;
+  right: 20%;
+  animation-delay: 0.8s;
+  animation-duration: 3.5s;
+}
+
+.particle:nth-child(3) {
+  bottom: 15%;
+  left: 25%;
+  animation-delay: 1.2s;
+  animation-duration: 4.5s;
+}
+
+.particle:nth-child(4) {
+  bottom: 25%;
+  right: 15%;
+  animation-delay: 1.8s;
+  animation-duration: 3.8s;
+}
+
+.particle:nth-child(5) {
+  top: 50%;
+  left: 5%;
+  animation-delay: 2.2s;
+  animation-duration: 4.2s;
+}
+
+/* INFO SECTION - BELOW IMAGE */
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.6s;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.small-title {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #facc15;
+  text-align: center;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 36px;
+  line-height: 1.5;
+  text-align: center;
+  background: linear-gradient(135deg, #facc15, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+  margin-bottom: 12px;
+}
+
+.text {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #e5e7eb;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.text:nth-of-type(2) {
+  animation-delay: 0.8s;
+}
+
+.text:nth-of-type(3) {
+  animation-delay: 1s;
+}
+
+/* QUOTE BOX */
+.quote-box {
+  position: relative;
+  background: linear-gradient(135deg, rgba(250, 204, 21, 0.1), rgba(245, 158, 11, 0.05));
+  border: 2px solid rgba(250, 204, 21, 0.3);
+  border-radius: 20px;
+  padding: 40px 50px;
+  margin-top: 20px;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: scaleIn 0.8s ease forwards;
+  animation-delay: 1.2s;
+  box-shadow: 0 8px 32px rgba(250, 204, 21, 0.15);
+}
+
+.quote-mark {
+  position: absolute;
+  font-size: 80px;
+  color: rgba(250, 204, 21, 0.3);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.quote-mark {
+  top: 10px;
+  left: 20px;
+}
+
+.quote-mark.closing {
+  bottom: -10px;
+  right: 20px;
+  transform: rotate(180deg);
+}
+
+.quote {
+  font-size: 18px;
+  font-style: italic;
+  color: #facc15;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+/* FOOTER */
+.footer {
+  border-top: 1px solid rgba(148, 163, 184, 0.5);
+  padding: 14px 16px 20px;
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-60px) scale(1.2);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .glow-ring {
+    width: 400px;
+    height: 400px;
+  }
+
+  .image-card {
+    max-width: 380px;
+  }
+
+  .floating-particles {
+    width: 400px;
+    height: 400px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-box {
+    padding: 30px 35px;
+  }
+
+  .quote-mark {1024px) {
+  .glow-ring {
+    width: 600px;
+    height: 600px;
+  }
+
+  .image-card {
+    max-width: 550px;
+  }
+
+  .floating-particles {
+    width: 600px;
+    height: 600px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .text {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .glow-ring {
+    width: 480px;
+    height: 480px;
+  }
+
+  .image-card {
+    max-width: 450px;
+  }
+
+  .floating-particles {
+    width: 480px;
+    height: 480px;
+  }
+
+  .info-section {
+    padding: 0 20px;
+    gap: 24px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .text {
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .quote-box {
+    padding: 30px 35px;
+  }
+
+  .quote-mark {
+    font-size: 60px;
+  }
+
+  .quote {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    padding: 0 12px 30px;
+  }
+
+  .image-section {
+    padding: 30px 15px;
+  }
+
+  .glow-ring {
+    width: 400px;
+    height: 400px;
+  }
+
+  .image-card {
+    max-width: 380px;
+  }
+
+  .floating-particles {
+    width: 400px;
+    height: 400px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .image-section {
+    padding: 20px 10px;
+  }
+
+  .glow-ring {
+    width: 340px;
+    height: 340px;
+  }
+
+  .image-card {
+    max-width: 320px;
+    border-radius: 24px;
+  }
+
+  .floating-particles {
+    width: 340px;
+    height: 340px;
+  }
+
+  .info-section {
+    padding: 0 16px;
+    gap: 20px;
+  }
+
+  .small-title {
+    font-size: 11px;
+  }
+
+  .title {
+    font-size: 19px;
+  }
+
+  .text {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .quote-box {
+    padding: 25px 20px;
+  }
+
+  .quote-mark {
+    font-size: 50px;
+  }
+
+  .quote {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .glow-ring {
+    width: 300px;
+    height: 300px;
+  }
+
+  .image-card {
+    max-width: 280px;
+  }
+
+  .floating-particles {
+    width: 300px;
+    height: 300px;
+  }
+
+  .title {
+    font-size: 17px;
+  }
+
+  .text {
+    font-size: 13
